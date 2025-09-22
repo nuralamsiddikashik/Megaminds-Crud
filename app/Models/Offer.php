@@ -20,7 +20,6 @@ class Offer extends Model {
         'author_id',
     ];
     public function categories() {
-        // pivot table name explicitly দিন
         return $this->belongsToMany( Category::class );
     }
 
