@@ -8,4 +8,5 @@ class OfferPolicy {
     public function create( User $user ) {
         return $user->role === 'user';
     }
+
 }

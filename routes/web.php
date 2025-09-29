@@ -19,6 +19,8 @@ Route::middleware( 'auth' )->group( function () {
 
     Route::get( '/offer/create', [OfferController::class, 'create'] )->name( 'offer.create' );
     Route::post( '/offer/create', [OfferController::class, 'store'] )->name( 'offer.store' );
+    Route::get( '/offer/{id}', [OfferController::class, 'show'] )->name( 'offer.show' );
+    Route::get( '/offer', [OfferController::class, 'index'] )->name( 'offers.index' );
 } );
 
 require __DIR__ . '/auth.php';

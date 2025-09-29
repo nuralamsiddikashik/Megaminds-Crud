@@ -16,7 +16,8 @@ class OfferController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        //
+        $offers = Offer::with( ["categories", "locations"] )->paginate( 10 );
+        return view( 'offers.index', compact( 'offers' ) );
     }
 
     /**
@@ -58,7 +59,8 @@ class OfferController extends Controller {
      * Display the specified resource.
      */
     public function show( string $id ) {
-        //
+        $offer = Offer::findOrFail( $id );
+        return view( 'offers.show', compact( 'offer' ) );
     }
 
     /**

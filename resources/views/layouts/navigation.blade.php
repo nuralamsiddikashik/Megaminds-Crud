@@ -16,10 +16,14 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('offer.create')" :active="request()->routeIs('offer.create')">
+                    <x-nav-link :href="route('offer.create')" :active="request()->routeIs('offers.create')">
                         {{ __('Create Profile') }}
                     </x-nav-link>
-                </div>
+
+                    <x-nav-link :href="route('offers.index')" :active="request()->routeIs('offers.index')">
+                        {{ __('Offer List') }}
+                    </x-nav-link>
+                </div>  
             </div>
 
             <!-- Settings Dropdown -->
