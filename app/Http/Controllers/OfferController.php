@@ -67,7 +67,11 @@ class OfferController extends Controller {
      * Show the form for editing the specified resource.
      */
     public function edit( string $id ) {
-        //
+        $offer = Offer::findOrFail( $id );
+        $this->authorize( 'update', $offer );
+        $categories = Category::orderBy( 'title' )->get();
+        $locations  = Location::orderBy( 'title' )->get();
+        return view( 'offers.edit', compact( 'offer', 'categories', 'locations' ) );
     }
 
     /**
