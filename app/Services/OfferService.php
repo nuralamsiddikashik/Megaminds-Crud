@@ -21,4 +21,15 @@ class OfferService {
         }, 5 );
 
     }
+
+    public function get( array $queryParams = [] ) {
+        $queryBuilder = Offer::with( ["categories", "locations"] )->latest();
+
+        $offers = resolve( \App\Filters\OfferFilter::class )->getResult( [
+            'builder' => $queryBuilder,
+            'params'  => $queryParams,
+        ] );
+
+        return $offers;
+    }
 }
