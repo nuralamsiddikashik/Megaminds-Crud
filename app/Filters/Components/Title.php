@@ -12,7 +12,6 @@ class Title implements ComponentInterface {
 
             $content['builder']->where( 'title', 'like', '%' . $value . '%' );
         }
-
         return $next( $content );
     }
 }

@@ -13,9 +13,12 @@ use Illuminate\Http\Request;
 class OfferController extends Controller {
     use AuthorizesRequests;
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource
      */
     public function index( Request $request, OfferService $offerService ) {
+
+        $this->authorize( 'viewAny', Offer::class );
+
         $offers = Offer::with( ["categories", "locations"] )->paginate( 10 );
 
         $categories = Category::orderBy( 'title' )->get();

@@ -13,7 +13,6 @@ class Category implements ComponentInterface {
                 $query->where( 'id', $content['params']['category'] );
             } );
         }
-
         return $next( $content );
     }
 }
